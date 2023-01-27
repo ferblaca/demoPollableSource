@@ -1,0 +1,15 @@
+spring:
+  kafka:
+    bootstrap-servers: localhost:9092
+  cloud:
+    function:
+      definitions: consumerBatch
+    stream:      
+      pollable-source: pollableConsumer
+      bindings:
+        producer-out-0:
+          destination: destination.topic
+          contentType: 
+        pollableConsumer-in-0:
+          destination: destination.topic
+          group: pollable-group
